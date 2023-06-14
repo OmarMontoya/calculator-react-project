@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function Display({ className, value }) {
+function Display({ className, values }) {
   return (
     <>
       <div className={className}>
-        {value}
+        {values}
       </div>
     </>
   )
