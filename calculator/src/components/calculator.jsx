@@ -7,6 +7,7 @@ export const Calculator = () => {
     let globalExpression = 0;
     let globalExpressionResult = 0;
     let resultFixed = 0;
+
     const [value, setValue] = useState('');
 
     function digit(number) {
@@ -15,9 +16,9 @@ export const Calculator = () => {
     
     function result() {
         globalExpression = value;
-        setValue('')
+        setValue('');
         globalExpressionResult = evaluate(globalExpression);
-        resultFixed = globalExpressionResult.toFixed(2);
+        resultFixed = globalExpressionResult.toString().includes('.') ? globalExpressionResult.toFixed(2) : globalExpressionResult;
         setValue(resultFixed);
     }
 
@@ -29,7 +30,7 @@ export const Calculator = () => {
         <>
             <div className="main-container flex justify-center items-center flex-col w-60 h-80 border border-solid border-gray-400 rounded-md mb-60 shadow-2xl backdrop-blur-sm bg-white/30">
                 <Display
-                    className="input input-bordered rounded-md w-5/6 mt-5 font-bold font-sans text-4xl flex justify-end"
+                    className={"input input-bordered rounded-md w-5/6 mt-5 font-bold font-sans text-4xl flex justify-end"}
                     values={value}
                 />
                 <div className="keyboard flex flex-col gap-1 mt-5 mb-5">
